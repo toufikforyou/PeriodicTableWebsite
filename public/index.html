@@ -3,9 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hi This is periodctable website</title>
+    <title>Periodic Table Learning Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/game.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Welcome</h1>
+    <div class="game-wrapper">
+      <header class="game-header">
+        <div class="logo">
+          <i class="fas fa-atom fa-spin-pulse"></i>
+          <h1>Periodic Table Interactive</h1>
+        </div>
+      </header>
+
+      <main class="container">
+        <div id="game-menu" class="animated">
+          <h2 class="section-title">Select Your Challenge</h2>
+          <div class="level-grid">
+            <button class="level-btn" data-level="1" type="button">
+              <i class="fas fa-star"></i>
+              <span class="level-name">Level 1</span>
+              <span class="level-desc">Elements 1-18</span>
+            </button>
+            <button class="level-btn" data-level="2" type="button">
+              <i class="fas fa-star"></i>
+              <span class="level-name">Level 2</span>
+              <span class="level-desc">Elements 1-36</span>
+            </button>
+            <button class="level-btn" data-level="3" type="button">
+              <i class="fas fa-star"></i>
+              <span class="level-name">Level 3</span>
+              <span class="level-desc">Elements 1-54</span>
+            </button>
+            <button class="level-btn" data-level="4" type="button">
+              <i class="fas fa-star"></i>
+              <span class="level-name">Level 4</span>
+              <span class="level-desc">Elements 1-86</span>
+            </button>
+            <button class="level-btn" data-level="5" type="button">
+              <i class="fas fa-star"></i>
+              <span class="level-name">Level 5</span>
+              <span class="level-desc">Elements 104-118</span>
+            </button>
+            <button class="level-btn special" data-level="6" type="button">
+              <i class="fas fa-flask"></i>
+              <span class="level-name">Lanthanides</span>
+              <span class="level-desc">Special Elements</span>
+            </button>
+            <button class="level-btn special" data-level="7" type="button">
+              <i class="fas fa-radiation"></i>
+              <span class="level-name">Actinides</span>
+              <span class="level-desc">Special Elements</span>
+            </button>
+            <button class="level-btn master" data-level="8" type="button">
+              <i class="fas fa-trophy"></i>
+              <span class="level-name">Full Table</span>
+              <span class="level-desc">All Elements</span>
+            </button>
+            <button class="level-btn challenge" data-level="9" type="button">
+              <i class="fas fa-crown"></i>
+              <span class="level-name">Challenge</span>
+              <span class="level-desc">Review All</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="game-container" class="hidden">
+          <div class="game-status-bar">
+            <div id="timer">
+              <i class="fas fa-clock"></i> <span id="time">05:00</span>
+            </div>
+            <div id="score">
+              <i class="fas fa-star"></i> <span id="points">0</span>
+            </div>
+          </div>
+
+          <div id="match-container" class="game-mode hidden">
+            <div id="element-bank" class="element-bank">
+              <div class="element-queue"></div>
+            </div>
+            <div id="game-board" class="periodic-grid"></div>
+          </div>
+
+          <div id="quiz-container" class="game-mode hidden">
+            <div class="question-box">
+              <h3 id="question"></h3>
+              <div id="options" class="options-grid"></div>
+            </div>
+          </div>
+
+          <button id="back-to-menu" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Menu
+          </button>
+        </div>
+      </main>
+
+      <div id="mode-selection-modal" class="modal">
+        <div class="modal-content glass-morphism">
+          <h2>Select Game Mode</h2>
+          <div class="mode-buttons">
+            <button id="startMatch" class="mode-select-btn">
+              <i class="fas fa-puzzle-piece"></i>
+              <span>Match Game</span>
+            </button>
+            <button id="startQuiz" class="mode-select-btn">
+              <i class="fas fa-question-circle"></i>
+              <span>Quiz Mode</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/elements-data.js"></script>
+    <script src="js/match-game.js"></script>
+    <script src="js/quiz-game.js"></script>
+    <script src="js/game.js"></script>
   </body>
 </html>
